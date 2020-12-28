@@ -1,18 +1,20 @@
 <template>
   <b-container>
-    <b-row align-v="start" class="ml-3 mb-3">
+    <b-row class="m-0 mb-3 ml-2">
       <b-button @click="changeShow" class="btn-show">{{
         show ? "Show card" : "Add card"
       }}</b-button>
     </b-row>
     <b-row v-if="!show" align-v="center" class="m-0">
       <Ewallet
-        v-for="(card, index) in cards"
+        v-for="(card, index) in cardItems"
         :key="index"
         :cardNumber="card.cardNumber"
         :cardHolderName="card.cardHolderName"
         :validDate="card.validDate"
         :vendersName="card.vendersName"
+        :bg="card.bg"
+        :logImg="card.logImg"
         class="ml-2 mb-2"
       />
     </b-row>
@@ -33,22 +35,48 @@ export default {
   },
   data() {
     return {
+      show: false,
       cards: [
         {
-          cardNumber: "1234 5678 9101 1213",
-          cardHolderName: "Natnael Lijato",
+          cardNumber: "1215 8878 9997",
+          cardHolderName: "Natnae Lijato",
           validDate: "12/23",
-          vendersName: "Test 2",
+          vendersName: "Our bannk",
+          bg: "SkyBlue",
+          logImg: {
+            fontType: "fab",
+            icon: "btc",
+          },
         },
         {
-          cardNumber: "1238 5679 9101 1213",
-          cardHolderName: "Natnael Lijato",
+          cardNumber: "127875 8878 9997",
+          cardHolderName: "Girma Lijato",
           validDate: "12/23",
-          vendersName: "Test 1",
+          vendersName: "My bannk",
+          bg: "RosyBrown",
+          logImg: {
+            fontType: "fas",
+            icon: "link",
+          },
+        },
+        {
+          cardNumber: "1215 8878 9997",
+          cardHolderName: "Dave Lijato",
+          validDate: "12/23",
+          vendersName: "Your bannk",
+          bg: "Sienna",
+          logImg: {
+            fontType: "fas",
+            icon: "user-ninja",
+          },
         },
       ],
-      show: false,
     };
+  },
+  computed: {
+    cardItems() {
+      return this.cards;
+    },
   },
   methods: {
     addCard(data, showCard) {
@@ -63,9 +91,7 @@ export default {
 </script>
 <style lang="scss">
 .btn-show {
-  background-color: #483d8b;
+  background-color: #3399ff;
   border: none;
-  // margin-top: 10px;
-  float: left;
 }
 </style>
