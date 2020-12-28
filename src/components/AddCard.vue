@@ -12,7 +12,6 @@
           required
         ></b-form-input>
       </b-row>
-
       <b-row class="m-0 mb-2">
         <label for="enter-name">CARDHOLDER NAME</label>
         <b-form-input
@@ -70,7 +69,7 @@ const getBlankForm = () => ({
   cardHolderName: "",
   validDate: "",
   vendersName: "",
-  bg: "orange",
+  bg: "",
   logImg: "",
   ccv: "",
 });
@@ -91,7 +90,6 @@ const formatValidDate = (validDate) => {
 import { CardLogo } from "../utils/constant.js";
 export default {
   name: "AddCard",
-
   data() {
     return {
       form: getBlankForm(),
