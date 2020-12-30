@@ -112,11 +112,18 @@ export default {
       this.form.bg = CardLogo[vendersNameStyle].bgcolor;
       this.form.logImg = CardLogo[vendersNameStyle].logoImage;
       this.form.validDate = formatValidDate(this.form.validDate);
-      this.$emit("cardData", this.form, false);
+      console.log("object", this.form);
+      this.$emit("cardData", this.form);
+      this.$router.push({
+        path: "/",
+        params: {
+          forms: Object.keys(this.form)
+            .map((key) => key + "=" + this.form[key])
+            .join("&"),
+        },
+      });
     },
-    reset() {
-      this.cardAdded = false;
-    },
+
     formatter(value) {
       value =
         value.length === 4 || value.length === 9 || value.length === 14

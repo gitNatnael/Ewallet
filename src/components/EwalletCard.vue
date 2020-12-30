@@ -1,5 +1,5 @@
 <template>
-  <b-card :style="classobj" class="card">
+  <b-card :style="classobj" class="card" @click="activeCard(index)">
     <div class="card-header-info">
       <div class="row m-0">
         <div class="col-8">
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "EwalletCard",
   props: {
@@ -63,6 +64,9 @@ export default {
     logImg: {
       type: Object,
     },
+    index: {
+      type: Number,
+    },
   },
 
   computed: {
@@ -78,26 +82,28 @@ export default {
       };
     },
   },
+  methods: {
+    ...mapActions(["updateActiveCard"]),
+    activeCard(cardIndex) {
+      console.log(cardIndex);
+      this.updateActiveCard(cardIndex);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .card {
-  max-width: 20rem;
-  min-width: 20rem;
+  min-width: 22rem;
   min-height: 12rem;
   max-height: 12rem;
   border-radius: 10px;
+  box-shadow: 2px 2px 2px gray;
 }
 .card-header-info {
-  /*   background-color: gray; */
   min-height: 4rem;
   margin-bottom: 0.5rem;
   margin-top: -0.7rem;
-
-  /*   margin-left: -18px;
-  margin-right: -18px; */
-  /*  margin: -18px -18px 2px -18px; */
 }
 
 .card-number {
