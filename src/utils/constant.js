@@ -1,73 +1,61 @@
 const CardLogo = {
   "BITCOIN INK": {
     bgcolor: "Orange",
-    logoImage: {
-      fontType: "fab",
-      icon: "btc"
-    }
+    logImg: "vendor-bitcoin.svg"
   },
   "SNINJA BANK": {
     bgcolor: "black",
-    logoImage: {
-      fontType: "fas",
-      icon: "user-ninja"
-    }
+    logImg: "vendor-bitcoin.svg"
   },
   "BLOCK CHAIN INC": {
     bgcolor: "MediumSlateBlue",
-    logoImage: {
-      fontType: "fas",
-      icon: "link"
-    }
+    logImg: "vendor-bitcoin.svg"
   },
   "EVIL CORP": {
     bgcolor: "Crimson",
-    logoImage: {
-      fontType: "fas",
-      icon: "link"
-    }
+    logImg: "vendor-bitcoin.svg"
   },
   "": {
     bgcolor: "gray",
-    logoImage: {
-      fontType: "fas",
-      icon: "link"
-    }
+    logImg: "vendor-bitcoin.svg"
   }
 };
 const cards = [
   {
     cardNumber: "1215 8878 9997",
     cardHolderName: "Natnae Lijato",
-    validDate: "12/23",
+    valid_month: "12",
+    valid_year: "23",
     vendersName: "Our bannk",
     bg: "SkyBlue",
-    logImg: {
-      fontType: "fab",
-      icon: "btc"
-    }
+    logImg: "vendor-bitcoin.svg"
   },
   {
     cardNumber: "127875 8878 2997",
     cardHolderName: "Girma Lijato",
-    validDate: "12/23",
+    valid_month: "12",
+    valid_year: "23",
     vendersName: "My bannk",
     bg: "RosyBrown",
-    logImg: {
-      fontType: "fas",
-      icon: "link"
-    }
+    logImg: "vendor-blockchain.svg"
   },
   {
     cardNumber: "1215 8878 1997",
     cardHolderName: "Dave Lijato",
-    validDate: "12/23",
+    valid_month: "12",
+    valid_year: "23",
     vendersName: "Your bannk",
     bg: "Sienna",
-    logImg: {
-      fontType: "fas",
-      icon: "user-ninja"
-    }
+    logImg: "vendor-evil.svg"
+  },
+  {
+    cardNumber: "1215 8008 1997",
+    cardHolderName: "Solomon Dom",
+    valid_month: "12",
+    valid_year: "23",
+    vendersName: "Your bannk",
+    bg: "Orange",
+    logImg: "vendor-ninja.svg"
   }
 ];
 export { CardLogo, cards };

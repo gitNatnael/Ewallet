@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../pages/Home.vue";
-import addCard from "../components/AddCard.vue";
+import AddEcard from "../pages/AddEcard.vue";
 
 Vue.use(VueRouter);
 
@@ -9,13 +9,12 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
-    props: true
+    component: Home
   },
   {
-    path: "/addcard",
-    name: "addCard",
-    component: addCard
+    path: "/addecard",
+    name: "addecard",
+    component: AddEcard
   }
   /*  {
     path: "/about",

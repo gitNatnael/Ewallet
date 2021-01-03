@@ -9,10 +9,14 @@ export default new Vuex.Store({
     activeCardIndex: 0
   },
   getters: {
-    getCards: state => state.allCards
+    getCards: state => state.allCards,
+    getActiveCard: state => state.allCards[state.activeCardIndex]
   },
   mutations: {
-    ADD_CARD: (state, payload) => state.allCards.push(payload),
+    ADD_NEW_ECARD: (state, payload) => {
+      state.allCards.push(payload);
+      state.activeCardIndex = state.allCards.length - 1;
+    },
     STORED_CARD: (state, payload) => (state.allCards = payload),
     UPDATE_ACTIVE_CARD_INDEX: (state, payload) =>
       (state.activeCardIndex = payload)
@@ -21,9 +25,11 @@ export default new Vuex.Store({
     storeCards(state) {
       state.commit("STORED_CARD", cards);
     },
+    addNewCard(state, newCard) {
+      state.commit("ADD_NEW_ECARD", newCard);
+    },
     updateActiveCard(state, activeIndex) {
       state.commit("UPDATE_ACTIVE_CARD_INDEX", activeIndex);
     }
-  },
-  modules: {}
+  }
 });

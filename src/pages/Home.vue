@@ -1,35 +1,38 @@
 <template>
   <div class="card-container">
     <h3>E-wallet</h3>
-    <div class="row mb-5">
-      <div class="col">
-        <Ewallet
-          :cardNumber="activeCard.cardNumber"
-          :cardHolderName="activeCard.cardHolderName"
-          :validDate="activeCard.validDate"
-          :vendersName="activeCard.vendersName"
-          :bg="activeCard.bg"
-          :logImg="activeCard.logImg"
-          :index="0"
-        />
-      </div>
+    <div class="row  active-card">
+      <Ewallet
+        :cardNumber="getActiveCard.cardNumber"
+        :cardHolderName="getActiveCard.cardHolderName"
+        :valid_month="getActiveCard.valid_month"
+        :valid_year="getActiveCard.valid_year"
+        :vendersName="getActiveCard.vendersName"
+        :bg="getActiveCard.bg"
+        :logImg="getActiveCard.logImg"
+        :index="0"
+      />
     </div>
-    <div class="row">
-      <div class="col">
-        <Ewallet
-          v-for="(card, index) in cardItems"
-          :key="index"
-          :cardNumber="card.cardNumber"
-          :cardHolderName="card.cardHolderName"
-          :validDate="card.validDate"
-          :vendersName="card.vendersName"
-          :bg="card.bg"
-          :logImg="card.logImg"
-          :index="index"
-          :style="index !== 0 ? 'margin-top:-130px' : 'margin-top: 5px'"
-        />
-      </div>
+    <div class="row m-0 mb-1">
+      <Ewallet
+        v-for="(card, index) in getCardStock"
+        :key="index"
+        v-show="index !== activeCardIndex"
+        :cardNumber="card.cardNumber"
+        :cardHolderName="card.cardHolderName"
+        :valid_month="card.valid_month"
+        :valid_year="card.valid_year"
+        :vendersName="card.vendersName"
+        :bg="card.bg"
+        :logImg="card.logImg"
+        :index="index"
+        :style="'margin-top:-130px;'"
+      />
     </div>
+
+    <b-button class="btn  btn-secondary" @click="addCardRoute"
+      >Add card</b-button
+    >
   </div>
 </template>
 
@@ -48,50 +51,47 @@ export default {
     this.storeCards();
   },
   computed: {
-    ...mapGetters(["getCards"]),
+    ...mapGetters({ getCardStock: "getCards" }),
+    ...mapGetters({ getActiveCard: "getActiveCard" }),
     ...mapState(["activeCardIndex"]),
-    activeCard() {
-      const card = this.getCards[this.activeCardIndex];
-      return card;
-    },
-    cardItems() {
-      return this.getCards;
-    },
   },
   methods: {
     ...mapActions(["storeCards"]),
-    addCard(data) {
-      this.cards.push(data);
+    addCardRoute() {
+      this.$router.push({
+        path: "/addecard",
+      });
     },
   },
 };
 </script>
-<style lang="scss">
-.btn-show {
-  background-color: #3399ff;
-  border: none;
+<style lang="scss" scoped>
+/* .btn {
   width: 100%;
-  height: 40px;
-}
-.btn-show a {
-  color: #000000;
-  line-height: 2.3rem;
-  text-align: center;
+  color: black;
+  margin: 0.3rem auto;
+  font-weight: bold;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: Olive;
+  padding: 0.6rem;
+} */
+.btn {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  background-color: Olive;
 }
 
-.container {
-  position: relative;
-  max-width: 40%;
-  padding-top: 50px;
-  padding-top: 50px;
-}
-.row {
-  margin: 0;
+.active-card {
+  margin: 0 0 150px 0;
 }
 .card-container {
-  max-width: 30%;
-  padding-top: 50px;
-  margin: 0 auto;
+  max-width: 25%;
+  margin: auto;
+  margin-top: 20px;
 }
 @media (max-width: 600px) {
   .card-container {

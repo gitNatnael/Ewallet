@@ -2,21 +2,13 @@
   <b-card :style="classobj" class="card" @click="activeCard(index)">
     <div class="card-header-info">
       <div class="row m-0">
-        <div class="col-8">
-          <div class="row m-0 mb-2 ml-3">
-            <fa-icon :icon="['fas', 'wifi']" class="simCard" />
-          </div>
-
-          <div class="row m-0 ml-4">
-            <fa-icon :icon="['fas', 'sim-card']" class="simCard" />
+        <div class="col-9">
+          <div class="row m-0 ml-3 ">
+            <img src="../assets/pictures/chip-light.svg" />
           </div>
         </div>
-        <div class="col-4">
-          <fa-icon
-            :icon="[logImg.fontType, logImg.icon]"
-            size="3x"
-            pull="right"
-          />
+        <div class="col-3">
+          <img class="vendors" :src="require(`@/assets/pictures/${logImg}`)" />
         </div>
       </div>
     </div>
@@ -33,7 +25,8 @@
       <b-col cols="4">
         <div>
           <span>Valid Date</span><br />
-          <span>{{ validDate }}</span>
+          <span>{{ valid_month }}/</span>
+          <span>{{ valid_year }}</span>
         </div>
       </b-col>
     </b-row>
@@ -51,7 +44,10 @@ export default {
     cardHolderName: {
       type: String,
     },
-    validDate: {
+    valid_month: {
+      type: String,
+    },
+    valid_year: {
       type: String,
     },
     vendersName: {
@@ -59,16 +55,14 @@ export default {
     },
     bg: {
       type: String,
-      default: "Gray",
     },
     logImg: {
-      type: Object,
+      type: String,
     },
     index: {
       type: Number,
     },
   },
-
   computed: {
     classobj() {
       return {
@@ -85,7 +79,6 @@ export default {
   methods: {
     ...mapActions(["updateActiveCard"]),
     activeCard(cardIndex) {
-      console.log(cardIndex);
       this.updateActiveCard(cardIndex);
     },
   },
@@ -94,11 +87,14 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+  max-width: 30%;
   min-width: 22rem;
-  min-height: 12rem;
+  min-height: 13rem;
   max-height: 12rem;
   border-radius: 10px;
   box-shadow: 2px 2px 2px gray;
+  justify-content: center;
+  margin: auto;
 }
 .card-header-info {
   min-height: 4rem;
@@ -115,7 +111,7 @@ export default {
   min-height: 2rem;
   margin-bottom: 5px;
 }
-.col-8 {
+.col-9 {
   margin-left: -1.3rem;
   padding: 0;
 }
@@ -126,8 +122,10 @@ export default {
   margin-left: 0;
   margin-right: 0;
 }
-.simCard {
-  /* color: #f2c856; */
-  font-size: 30px;
+
+.vendors {
+  float: right;
+  margin-right: -20px;
+  margin-top: 10px;
 }
 </style>
