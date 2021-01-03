@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div class="ecard-form">
-      <EcardForm />
-    </div>
+  <div class="container">
+    <EcardForm />
   </div>
 </template>
 
@@ -16,11 +14,16 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.ecard-form {
-  display: flex;
-  justify-content: center;
+<style lang="scss" scoped>
+.container {
+  width: 60%;
   margin: auto;
-  padding-top: 20px;
+
+  background-color: rgb(224, 218, 218);
+}
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
 }
 </style>

@@ -29,10 +29,9 @@
         :style="'margin-top:-130px;'"
       />
     </div>
-
-    <b-button class="btn  btn-secondary" @click="addCardRoute"
-      >Add card</b-button
-    >
+    <div class="row m-0 mb-1">
+      <b-button @click="addCardRoute">Add card</b-button>
+    </div>
   </div>
 </template>
 
@@ -66,16 +65,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-/* .btn {
-  width: 100%;
-  color: black;
-  margin: 0.3rem auto;
-  font-weight: bold;
-  justify-content: center;
-  border-radius: 0.5rem;
-  background-color: Olive;
-  padding: 0.6rem;
-} */
 .btn {
   margin-top: 10px;
   padding: 10px;
@@ -86,7 +75,10 @@ export default {
 }
 
 .active-card {
-  margin: 0 0 150px 0;
+  margin: 0 0 170px 0;
+}
+.row {
+  width: 100%;
 }
 .card-container {
   max-width: 25%;

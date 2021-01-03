@@ -127,5 +127,7 @@ export default {
   float: right;
   margin-right: -20px;
   margin-top: 10px;
+  max-height: 3rem;
+  max-width: 3rem;
 }
 </style>
