@@ -136,7 +136,6 @@ export default {
     onSubmit(event) {
       event.preventDefault();
       if (this.form.cardNumber && this.form.cardHolderName) {
-        console.log(this.form);
         this.addNewCard(this.form);
       }
       this.$router.push({
