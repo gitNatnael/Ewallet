@@ -1,7 +1,7 @@
 <template>
   <div class="card-container">
     <h3>E-wallet</h3>
-    <div class="row  active-card">
+    <div class="active-card">
       <Ewallet
         :cardNumber="getActiveCard.cardNumber"
         :cardHolderName="getActiveCard.cardHolderName"
@@ -13,7 +13,7 @@
         :index="0"
       />
     </div>
-    <div class="row m-0 mb-1">
+    <div class="card-stock">
       <Ewallet
         v-for="(card, index) in getCardStock"
         :key="index"
@@ -29,9 +29,9 @@
         :style="'margin-top:-130px;'"
       />
     </div>
-    <div class="row m-0 mb-1">
-      <b-button @click="addCardRoute">Add card</b-button>
-    </div>
+
+    <!-- <b-button @click="addCardRoute">Add card</b-button> -->
+    <b-button block variant="primary" href="/addecard">Add card</b-button>
   </div>
 </template>
 
@@ -50,8 +50,7 @@ export default {
     this.storeCards();
   },
   computed: {
-    ...mapGetters({ getCardStock: "getCards" }),
-    ...mapGetters({ getActiveCard: "getActiveCard" }),
+    ...mapGetters({ getCardStock: "getCards", getActiveCard: "getActiveCard" }),
     ...mapState(["activeCardIndex"]),
   },
   methods: {
@@ -65,15 +64,18 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.btn {
+.card-stock {
+  margin-bottom: 0 auto;
+}
+.btn-block {
   margin-top: 10px;
+  margin-bottom: 30px;
   padding: 10px;
   width: 100%;
   border-radius: 0.5rem;
   font-weight: bold;
   background-color: Olive;
 }
-
 .active-card {
   margin: 0 0 170px 0;
 }
@@ -85,6 +87,7 @@ export default {
   margin: auto;
   margin-top: 20px;
 }
+
 @media (max-width: 600px) {
   .card-container {
     max-width: 100%;

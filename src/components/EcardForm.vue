@@ -151,8 +151,10 @@ export default {
       return value;
     },
     changeVendor() {
-      this.form.bg = CardLogo[this.form.vendersName].bgcolor;
-      this.form.logImg = CardLogo[this.form.vendersName].logImg;
+      if (this.form.vendersName) {
+        this.form.bg = CardLogo[this.form.vendersName].bgcolor;
+        this.form.logImg = CardLogo[this.form.vendersName].logImg;
+      }
     },
   },
 };
