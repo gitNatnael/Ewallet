@@ -30,8 +30,7 @@
       />
     </div>
 
-    <!-- <b-button @click="addCardRoute">Add card</b-button> -->
-    <b-button block variant="primary" href="/addecard">Add card</b-button>
+    <b-button block variant="primary" @click="addCardRoute">Add card</b-button>
   </div>
 </template>
 
