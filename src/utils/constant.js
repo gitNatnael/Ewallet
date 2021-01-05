@@ -49,9 +49,18 @@ const cards = [
     cardHolderName: "Solomon Dom",
     valid_month: "12",
     valid_year: "23",
-    vendersName: "EVIL CORP",
+    vendersName: "Bitcoin",
     bg: "Crimson",
     logImg: "vendor-evil.svg"
+  },
+  {
+    cardNumber: "1665 8002 1997",
+    cardHolderName: "Lina Anders",
+    valid_month: "02",
+    valid_year: "25",
+    vendersName: "EVIL CORP",
+    bg: "Crimson",
+    logImg: "vendor-bitcoin.sv"
   }
 ];
 export { CardLogo, cards };
