@@ -8,3 +8,7 @@ app.use("/", serveStatic(path.join(__dirname, "/dist")));
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+/***
+ * This is used to depoly on heroku ewallet-vue.herokuapp.com
+ */
