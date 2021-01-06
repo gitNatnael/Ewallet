@@ -60,7 +60,7 @@ const cards = [
     valid_year: "25",
     vendersName: "EVIL CORP",
     bg: "Crimson",
-    logImg: "vendor-bitcoin.sv"
+    logImg: "vendor-bitcoin.svg"
   }
 ];
 export { CardLogo, cards };

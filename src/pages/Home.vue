@@ -10,7 +10,7 @@
         :vendersName="getActiveCard.vendersName"
         :bg="getActiveCard.bg"
         :logImg="getActiveCard.logImg"
-        :index="0"
+        :index="activeCardIndex"
       />
     </div>
     <div class="card-stock">
@@ -30,7 +30,7 @@
       />
     </div>
 
-    <b-button block variant="primary" @click="addCardRoute">Add card</b-button>
+    <b-button block @click="addCardRoute">Add card</b-button>
   </div>
 </template>
 
